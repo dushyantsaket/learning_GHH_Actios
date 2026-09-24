@@ -31,7 +31,7 @@ jobs:
     steps:
       - name: Print all System information
         run: |
-          lsb_releaase -a
+          lsb_release -a
           uname -r
           lscpu
           nproc
