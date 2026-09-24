@@ -38,6 +38,6 @@ jobs:
           free -h
           lsblk
       - name: Print Node.js Version
-        run: node -V
+        run: node -v
       - name: Print all files
         run: ls -a
