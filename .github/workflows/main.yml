@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
          # - run: echo ${{true}}
-           - run: echo ${{5 > 4}}
+           - run: echo ${{5 < 4}}
 
