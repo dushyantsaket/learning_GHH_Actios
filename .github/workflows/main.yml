@@ -2,6 +2,10 @@ name: My first flow
 on: [push, workflow_dispatch]
 jobs:
   my-first-job:
+    env:
+     TEST: "my test variable."
+     HELLO: "My Test Variable"
+ 
     runs-on: ubuntu-latest
     steps:
          # - run: echo ${{true}}
