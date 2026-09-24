@@ -9,7 +9,11 @@ jobs:
 
       - name: Print Working Directory
         run: pwd
-      - name: Check repo 
+
+      - name: Check repo
         uses: actions/checkout@v7
+
       - name: List all files
-        run: ls -a  
+        run: ls -a
+      - name: Print workflow file contents
+        run: cat./.github/workflows/main.yml
