@@ -1,5 +1,5 @@
 name: My first flow
-on: [push,workflow_dispatch]
+on: push
 jobs:
   my-first-job:
     runs-on: ubuntu-latest
@@ -10,6 +10,12 @@ jobs:
       - name: Print Working Directory
         run: pwd
 
+      - name: Check the CPU
+        run: nproc
+
+      - name: Check the RAM
+        run: free -h
+
       - name: Create JS file
         run: echo 'console.log("Hello World!")'; > app.js
 
@@ -18,3 +24,15 @@ jobs:
 
       - name: Run Node.js File
         run: node app.js
+
+  my-second-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print all System information
+        run: |
+          lsb_releaase -a
+          uname -r
+          lscpu
+          nproc
+          free -h
+          lsblk
