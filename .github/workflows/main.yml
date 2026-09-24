@@ -1,16 +1,33 @@
 name: My first flow
 on: [push, workflow_dispatch]
+env:
+  GLOBAL: "Global env"
 jobs:
   my-first-job:
     env:
-     TEST: "my test variable."
-     HELLO: "My Test Variable"
- 
+      TEST: "my test variable."
+      HELLO: "My Test Variable"
+      HI: "Hello"
     runs-on: ubuntu-latest
     steps:
-         # - run: echo ${{true}}
-           - run: echo "${{toJson(env)}}"
-           - run: echo "${{toJson(vars)}}"
-           - run: echo "${{toJson(secrets)}}"
-           - run: echo "${{toJson(runner)}}"
+      - name: Test
+        env:
+          TEST: "My test variable from step"
+          HELLO: "Hello World"
+        run: echo "${{toJson(env)}}"
 
+      - run: echo "${{toJson(vars)}}"
+      - run: echo "${{toJson(secrets)}}"
+      - run: echo "${{toJson(runner)}}"
+      - run: echo "${{toJson(env.TEST)}}"
+  my-second-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{toJson(vars)}}"
+      - run: echo "${{toJson(secrets)}}"
+      - run: echo "${{toJson(runner)}}"
+      - run: echo "${{toJson(env)}}"
+      # runs-
+      # # - run: echo ${{}}
+      # - run: touch app.js
+      # - run: ls -a
