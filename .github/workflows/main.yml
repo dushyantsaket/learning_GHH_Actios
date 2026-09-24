@@ -24,7 +24,7 @@ jobs:
       - name: Print node version
         run: node -v
       - name: install Node.js version 24
-        uses: actions/checkout@v7
+        uses: actions/setup-node@v4
         with:
           node-version: "24"
 
